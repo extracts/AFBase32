@@ -1,9 +1,9 @@
 /*
- * Base32.m
+ * AFBase32.m
  *
  * MIT License (MIT)
  *
- * Copyright (c) 2012 Ashkan Farhadtouski
+ * Copyright (c) 2015 Ashkan Farhadtouski
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,42 +24,47 @@
  * IN THE SOFTWARE.
  */
 
-/*
- * Release History
- *
- * Version 1.0 (12/29/2012)
- * ------------------------
- * - Initial release.
- */
+#import "AFBase32.h"
 
-#import "Base32.h"
+NSInteger const kAFBase32DigitLimit = 19;
 
-
-@implementation NSString (Base32Crockford)
+@implementation NSString (AFBase32Crockford)
 
 - (NSString *)base32EncodedString
 {
-    return [Base32 encode:self];
+    return [AFBase32 encode:self];
 }
 
 - (NSString *)decodeBase32String
 {
-    return [Base32 decode:self];
+    return [AFBase32 decode:self];
 }
 
 @end
 
-@implementation Base32
+// Define and populate the encoding characters array
+static char kEncodeCharsArray[] =
+{
+    '0', '1', '2', '3', '4',
+    '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E',
+    'F', 'G', 'H', 'J', 'K',
+    'M', 'N', 'P', 'Q', 'R',
+    'S', 'T', 'V', 'W', 'X',
+    'Y', 'Z', '?'
+};
+
+@implementation AFBase32
 
 + (NSString *)encode:(NSString *)numberToEncode
 {
     // Nothing to do
-    if ([numberToEncode length] <= 0)
+    if (numberToEncode.length == 0)
     {
         return @"";
     }
 
-    long long nTemp = [numberToEncode longLongValue];
+    long long nTemp = numberToEncode.longLongValue;
 
     // Number isn't a valid decimal text representation of a number.
     if (nTemp == 0)
@@ -74,18 +79,6 @@
         return @"";
     }
     
-    // Define and populate the encoding characters array
-    char kEncodeCharsArray[] =
-    {
-        '0', '1', '2', '3', '4',
-        '5', '6', '7', '8', '9',
-        'A', 'B', 'C', 'D', 'E',
-        'F', 'G', 'H', 'J', 'K',
-        'M', 'N', 'P', 'Q', 'R',
-        'S', 'T', 'V', 'W', 'X',
-        'Y', 'Z', '?'
-    };
-    
     __block char *kEncodeChars = kEncodeCharsArray;
 
     // Get the two's complement representation of the input
@@ -94,8 +87,8 @@
     // Revers the string
     NSString *reversedString = [self reverseString:binaryString];
     
-    // Create the regular expression pattern that we'll use to split the input.
-    // We will process 5 digits at a time.
+    // Create the regular expression pattern that we'll use to split the input. We will process 5
+    // digits at a time.
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".{1,5}"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:nil];
@@ -106,18 +99,23 @@
     __block
 #endif
     NSMutableString *str = [NSMutableString string];
+    NSInteger charArraySize = sizeof(kEncodeCharsArray)/sizeof(char);
     
     // Process each group of five digits
     [regex enumerateMatchesInString:reversedString
                             options:NSMatchingReportProgress
-                              range:NSMakeRange(0, [reversedString length])
+                              range:NSMakeRange(0, reversedString.length)
                          usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop)
      {
-         NSRange matchRange = [result range];
+         NSRange matchRange = result.range;
          
          NSString *s = [reversedString substringWithRange:matchRange];
          NSString *r = [self reverseString:s];
-         long long index = [self integerFromBinaryString:r];
+         unsigned long long index = [self integerFromBinaryString:r];
+         
+         // Make sure the index is valid.
+         index = MAX(index, 0);
+         index = MIN(index, charArraySize);
          
          [str appendFormat:@"%c", kEncodeChars[index]];
      }];
@@ -139,7 +137,7 @@
                                  @"?": @32, @"I": @1,  @"L": @1,  @"O": @0};
     
     // Don't do anything if the input string is of length zero.
-    if ([base32String length] == 0)
+    if (base32String.length == 0)
     {
         return @"";
     }
@@ -148,33 +146,32 @@
     
     // Remove any existing dashes and convert all the letters to uppercase
     number = [number stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    number = [number uppercaseString];
+    number = number.uppercaseString;
     
     // If we end up with nothing, don't do anything.
-    if ([number length] == 0)
+    if (number.length == 0)
     {
         return @"";
     }
     
-    // Dynamically allocated items, like arrays, cannot be used in blocks, so
-    // define a pointer that can be used to insert numbers into the array.
-    int charsArray[[number length]];
+    // Dynamically allocated items, like arrays, cannot be used in blocks, so define a pointer that
+    // can be used to insert numbers into the array.
+    int charsArray[number.length];
     int *chars = charsArray;
     
     // Keep a record of how many items we put in the charsArray
-    __block int charCount = 0;
+    __block NSInteger charCount = 0;
     
-    // Use the Objective-C fast enumeration methods to traverse the input
-    // string. This is faster than manually going over every character in a for
-    // loop, for example.
+    // Use the Objective-C fast enumeration methods to traverse the input string. This is faster
+    // than manually going over every character in a for loop, for example.
     NSStringEnumerationOptions enumerationOptions = NSStringEnumerationByComposedCharacterSequences;
     
-    [number enumerateSubstringsInRange:NSMakeRange(0, [number length])
+    [number enumerateSubstringsInRange:NSMakeRange(0, number.length)
                                options:enumerationOptions
                             usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop)
     {
-        // Lookup the character in our table and add get the corresponding
-        // number. Also increment the count.
+        // Lookup the character in our table and add get the corresponding number. Also increment
+        // the count.
         chars[charCount] = [kDecodeMap[substring] intValue];
         charCount++;
     }];
@@ -182,13 +179,12 @@
     NSString *resultString = @"";
     
     // Protect against very large numbers.
-    if ([number length] <= 10)
+    if (number.length <= kAFBase32DigitLimit)
     {
         unsigned long long result = 0;
         
-        for (int i = 0; i < charCount; i++)
+        for (NSInteger i = 0; i < charCount; i++)
         {
-            //NSLog(@"%i", charsArray[i]);
             result = (result << 5) + charsArray[i];
         }
         
@@ -196,8 +192,7 @@
     }
     else
     {
-        // Just return an empty string if the resulting number is too large for
-        // primitive types.
+        // Just return an empty string if the resulting number is too large for primitive types.
         resultString = @"";
     }
 
@@ -206,12 +201,12 @@
 
 + (NSString *)reverseString:(NSString *)stringToReverse
 {
-    // Use the fast enumeration methods to reverse the string. This is much
-    // faster than stepping over every character and constructing a string with those characters.
-    NSMutableString *reversedString = [[NSMutableString alloc] init];
+    // Use the fast enumeration methods to reverse the string. This is much faster than stepping
+    // over every character and constructing a string with those characters.
+    NSMutableString *reversedString = [NSMutableString new];
     NSStringEnumerationOptions enumerationOptions = (NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences);
     
-    [stringToReverse enumerateSubstringsInRange:NSMakeRange(0, [stringToReverse length])
+    [stringToReverse enumerateSubstringsInRange:NSMakeRange(0, stringToReverse.length)
                                         options:enumerationOptions
                                      usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop)
      {
@@ -226,11 +221,11 @@
 #endif
 }
 
-+ (long long)integerFromBinaryString:(NSString *)binaryString
++ (unsigned long long)integerFromBinaryString:(NSString *)binaryString
 {
-    const char *utf8String = [binaryString UTF8String];
+    const char *utf8String = binaryString.UTF8String;
     char *endPtr = NULL;
-    long long foo = strtoull(utf8String, &endPtr, 2);
+    unsigned long long foo = strtoull(utf8String, &endPtr, 2);
     
     if (endPtr != utf8String + strlen(utf8String))
     {
@@ -255,17 +250,17 @@
 
 + (NSString *)binaryStringFromNumber:(NSNumber *)number
 {
-    unsigned long long localNumber = [number unsignedLongLongValue];
+    unsigned long long localNumber = number.unsignedLongLongValue;
     unsigned long long num = localNumber;
     
     // Figure out the maximum power of 2 needed
-    int maxPowerNeeded = log(num) / log(2) + 1;
+    NSInteger maxPowerNeeded = log(num) / log(2) + 1;
     
     // Start with empty string
     NSMutableString *result = [NSMutableString stringWithCapacity:maxPowerNeeded];
     
     // Iterate down through the powers of 2
-    for (int i = maxPowerNeeded; i >= 0; i--)
+    for (NSInteger i = maxPowerNeeded; i >= 0; i--)
     {
         unsigned long long currentPower = powl(2, i);
         
@@ -280,11 +275,8 @@
         }
         else
         {
-            // Otherwise append "0" only if we have any preceding digits
-            if ([result length] > 0)
-            {
-                [result appendString:@"0"];
-            }
+            // Otherwise append "0"
+            [result appendString:@"0"];
         }
     }
     

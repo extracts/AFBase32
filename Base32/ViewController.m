@@ -3,7 +3,7 @@
  *
  * MIT License (MIT)
  *
- * Copyright (c) 2012 Ashkan Farhadtouski
+ * Copyright (c) 2015 Ashkan Farhadtouski
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,54 +24,24 @@
  * IN THE SOFTWARE.
  */
 
-#import <QuartzCore/QuartzCore.h>
-
 #import "ViewController.h"
 
-#import "Base32.h"
+#import "AFBase32.h"
 
+@interface ViewController () <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *numberToEncodeTextField;
+@property (weak, nonatomic) IBOutlet UITextView *stringToDecodeTextView;
+@property (weak, nonatomic) IBOutlet UITextView *decodedNumberTextView;
+
+@end
 
 @implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    self.numberToEncodeTextField.backgroundColor = [UIColor whiteColor];
-    self.numberToEncodeTextField.layer.cornerRadius = 8;
-    self.numberToEncodeTextField.layer.borderColor = [UIColor grayColor].CGColor;
-    self.numberToEncodeTextField.layer.borderWidth = 1;
-    
-    self.stringToDecodeTextView.layer.cornerRadius = 10;
-    self.stringToDecodeTextView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.stringToDecodeTextView.layer.borderWidth = 1;
-    
-    self.decodedNumberTextView.layer.cornerRadius = 10;
-    self.decodedNumberTextView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.decodedNumberTextView.layer.borderWidth = 1;
-    
-    // Some predefined tests
-    NSString *firstString = @"1234";
-    NSString *firstEncodedString = @"16J";
-    NSString *secondString = @"1234567890";
-    NSString *secondEncodedString = @"14SC0PJ";
-    
-    // Encode the first string
-    NSString *firstTest = [Base32 encode:firstString];
-    NSLog(@"'%@' => '%@', Expecting = '16J', %@", firstString, firstTest, [firstTest isEqualToString:firstEncodedString] ? @"Passed" : @"Failed" );
-    
-    // Encoding using the NSString utility method
-    NSString *secondTest = [secondString base32EncodedString];
-    NSLog(@"'%@' => '%@', Expecting = '14SC0PJ', %@", secondString, secondTest, [secondTest isEqualToString:secondEncodedString] ? @"Passed" : @"Failed");
-    
-    // Decode the first string
-    NSString *thirdTest = [Base32 decode:firstEncodedString];
-    NSLog(@"'%@' => '%@', Expecting = '1234', %@", firstEncodedString, thirdTest, [thirdTest isEqualToString:firstString] ? @"Passed" : @"Failed");
-    
-    // Decode using the NSString utility method
-    NSString *fourthTest = [secondEncodedString decodeBase32String];
-    NSLog(@"'%@' => '%@', Expecting = '1234567890', %@", secondEncodedString, fourthTest, [fourthTest isEqualToString:secondString] ? @"Passed" : @"Failed");
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,9 +50,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UI Actions
+
 - (IBAction)encodeButtonTouchUpInside
 {
-    self.stringToDecodeTextView.text = [self.numberToEncodeTextField.text base32EncodedString];
+    self.stringToDecodeTextView.text = [AFBase32 encode:self.numberToEncodeTextField.text];//] base32EncodedString];
     [self.numberToEncodeTextField resignFirstResponder];
 }
 
@@ -92,30 +64,16 @@
     [self.stringToDecodeTextView resignFirstResponder];
 }
 
-- (void)viewDidUnload
-{
-    self.numberToEncodeTextField = nil;
-    self.stringToDecodeTextView = nil;
-    self.decodedNumberTextView = nil;
-    
-    [super viewDidUnload];
-}
+#pragma mark - UITextViewDelegate
 
-#pragma mark -
-#pragma mark UITextViewDelegate Methods
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    // If "Done" is pressed, run the decode logic, which should dismiss the
-    // keyboard.
-    if ([text isEqualToString:@"\n"])
+    if (textField.text.length + string.length <= kAFBase32DigitLimit)
     {
-        [self decodeButtonTouchUpInside];
-        
-        return NO;
+        return YES;
     }
     
-    return YES;
+    return NO;
 }
 
 @end
