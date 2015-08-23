@@ -111,7 +111,7 @@ static char kEncodeCharsArray[] =
          
          NSString *s = [reversedString substringWithRange:matchRange];
          NSString *r = [self reverseString:s];
-         unsigned long long index = [self integerFromBinaryString:r];
+         long long index = [self integerFromBinaryString:r];
          
          // Make sure the index is valid.
          index = MAX(index, 0);
