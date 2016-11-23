@@ -1,4 +1,4 @@
-	Base32
+	AFBase32
 
 	MIT License (MIT)
 

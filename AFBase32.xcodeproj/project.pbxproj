@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4159CDAB1B89AC33000215AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4159CDAA1B89AC33000215AB /* main.m */; };
-		4159CDAE1B89AC33000215AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4159CDAD1B89AC33000215AB /* AppDelegate.m */; };
-		4159CDB11B89AC33000215AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4159CDB01B89AC33000215AB /* ViewController.m */; };
-		4159CDB41B89AC33000215AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4159CDB21B89AC33000215AB /* Main.storyboard */; };
-		4159CDB61B89AC33000215AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4159CDB51B89AC33000215AB /* Images.xcassets */; };
-		4159CDB91B89AC33000215AB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4159CDB71B89AC33000215AB /* LaunchScreen.xib */; };
-		4159CDC51B89AC34000215AB /* base32Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4159CDC41B89AC34000215AB /* base32Tests.m */; };
-		416DD6C91B89CE16003358AE /* AFBase32.m in Sources */ = {isa = PBXBuildFile; fileRef = 416DD6C81B89CE16003358AE /* AFBase32.m */; };
+		41E767F41DE5227F00135381 /* AFBase32.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E767EF1DE5227F00135381 /* AFBase32.m */; };
+		41E767F51DE5227F00135381 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E767F11DE5227F00135381 /* AppDelegate.m */; };
+		41E767F61DE5227F00135381 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E767F31DE5227F00135381 /* ViewController.m */; };
+		41E768011DE5229E00135381 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E767FC1DE5229E00135381 /* Images.xcassets */; };
+		41E768031DE5229E00135381 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E767FE1DE5229E00135381 /* main.m */; };
+		41E768081DE5238000135381 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E767F81DE5229E00135381 /* LaunchScreen.xib */; };
+		41E768091DE5238000135381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E767FA1DE5229E00135381 /* Main.storyboard */; };
+		41E7680A1DE5254F00135381 /* AFBase32Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E768041DE522D900135381 /* AFBase32Tests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,21 +28,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4159CDA51B89AC33000215AB /* base32.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = base32.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4159CDA91B89AC33000215AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4159CDAA1B89AC33000215AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4159CDAC1B89AC33000215AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4159CDAD1B89AC33000215AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4159CDAF1B89AC33000215AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4159CDB01B89AC33000215AB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4159CDB31B89AC33000215AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4159CDB51B89AC33000215AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4159CDB81B89AC33000215AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4159CDBE1B89AC34000215AB /* base32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = base32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4159CDC31B89AC34000215AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4159CDC41B89AC34000215AB /* base32Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = base32Tests.m; sourceTree = "<group>"; };
-		416DD6C71B89CE16003358AE /* AFBase32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFBase32.h; sourceTree = "<group>"; };
-		416DD6C81B89CE16003358AE /* AFBase32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBase32.m; sourceTree = "<group>"; };
+		4159CDA51B89AC33000215AB /* AFBase32.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFBase32.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4159CDBE1B89AC34000215AB /* AFBase32Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AFBase32Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E767EE1DE5227F00135381 /* AFBase32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFBase32.h; path = AFBase32/AFBase32.h; sourceTree = SOURCE_ROOT; };
+		41E767EF1DE5227F00135381 /* AFBase32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFBase32.m; path = AFBase32/AFBase32.m; sourceTree = SOURCE_ROOT; };
+		41E767F01DE5227F00135381 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AFBase32/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		41E767F11DE5227F00135381 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AFBase32/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		41E767F21DE5227F00135381 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = AFBase32/ViewController.h; sourceTree = SOURCE_ROOT; };
+		41E767F31DE5227F00135381 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = AFBase32/ViewController.m; sourceTree = SOURCE_ROOT; };
+		41E767F91DE5229E00135381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		41E767FB1DE5229E00135381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		41E767FC1DE5229E00135381 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AFBase32/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		41E767FD1DE5229E00135381 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AFBase32/Info.plist; sourceTree = SOURCE_ROOT; };
+		41E767FE1DE5229E00135381 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AFBase32/main.m; sourceTree = SOURCE_ROOT; };
+		41E768041DE522D900135381 /* AFBase32Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFBase32Tests.m; path = AFBase32Tests/AFBase32Tests.m; sourceTree = SOURCE_ROOT; };
+		41E768061DE522E500135381 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AFBase32Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 		4159CD9C1B89AC33000215AB = {
 			isa = PBXGroup;
 			children = (
-				4159CDA71B89AC33000215AB /* base32 */,
-				4159CDC11B89AC34000215AB /* base32Tests */,
+				4159CDA71B89AC33000215AB /* AFBase32 */,
+				4159CDC11B89AC34000215AB /* AFBase32Tests */,
 				4159CDA61B89AC33000215AB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,51 +75,53 @@
 		4159CDA61B89AC33000215AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4159CDA51B89AC33000215AB /* base32.app */,
-				4159CDBE1B89AC34000215AB /* base32Tests.xctest */,
+				4159CDA51B89AC33000215AB /* AFBase32.app */,
+				4159CDBE1B89AC34000215AB /* AFBase32Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4159CDA71B89AC33000215AB /* base32 */ = {
+		4159CDA71B89AC33000215AB /* AFBase32 */ = {
 			isa = PBXGroup;
 			children = (
-				416DD6C71B89CE16003358AE /* AFBase32.h */,
-				416DD6C81B89CE16003358AE /* AFBase32.m */,
-				4159CDAC1B89AC33000215AB /* AppDelegate.h */,
-				4159CDAD1B89AC33000215AB /* AppDelegate.m */,
-				4159CDAF1B89AC33000215AB /* ViewController.h */,
-				4159CDB01B89AC33000215AB /* ViewController.m */,
+				41E767EE1DE5227F00135381 /* AFBase32.h */,
+				41E767EF1DE5227F00135381 /* AFBase32.m */,
+				41E767F01DE5227F00135381 /* AppDelegate.h */,
+				41E767F11DE5227F00135381 /* AppDelegate.m */,
+				41E767F21DE5227F00135381 /* ViewController.h */,
+				41E767F31DE5227F00135381 /* ViewController.m */,
 				4159CDA81B89AC33000215AB /* Supporting Files */,
 			);
+			name = AFBase32;
 			path = base32;
 			sourceTree = "<group>";
 		};
 		4159CDA81B89AC33000215AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4159CDB51B89AC33000215AB /* Images.xcassets */,
-				4159CDA91B89AC33000215AB /* Info.plist */,
-				4159CDB71B89AC33000215AB /* LaunchScreen.xib */,
-				4159CDAA1B89AC33000215AB /* main.m */,
-				4159CDB21B89AC33000215AB /* Main.storyboard */,
+				41E767FC1DE5229E00135381 /* Images.xcassets */,
+				41E767FD1DE5229E00135381 /* Info.plist */,
+				41E767F81DE5229E00135381 /* LaunchScreen.xib */,
+				41E767FE1DE5229E00135381 /* main.m */,
+				41E767FA1DE5229E00135381 /* Main.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4159CDC11B89AC34000215AB /* base32Tests */ = {
+		4159CDC11B89AC34000215AB /* AFBase32Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4159CDC41B89AC34000215AB /* base32Tests.m */,
+				41E768041DE522D900135381 /* AFBase32Tests.m */,
 				4159CDC21B89AC34000215AB /* Supporting Files */,
 			);
+			name = AFBase32Tests;
 			path = base32Tests;
 			sourceTree = "<group>";
 		};
 		4159CDC21B89AC34000215AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4159CDC31B89AC34000215AB /* Info.plist */,
+				41E768061DE522E500135381 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -127,9 +129,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4159CDA41B89AC33000215AB /* base32 */ = {
+		4159CDA41B89AC33000215AB /* AFBase32 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4159CDC81B89AC34000215AB /* Build configuration list for PBXNativeTarget "base32" */;
+			buildConfigurationList = 4159CDC81B89AC34000215AB /* Build configuration list for PBXNativeTarget "AFBase32" */;
 			buildPhases = (
 				4159CDA11B89AC33000215AB /* Sources */,
 				4159CDA21B89AC33000215AB /* Frameworks */,
@@ -139,14 +141,14 @@
 			);
 			dependencies = (
 			);
-			name = base32;
+			name = AFBase32;
 			productName = base32;
-			productReference = 4159CDA51B89AC33000215AB /* base32.app */;
+			productReference = 4159CDA51B89AC33000215AB /* AFBase32.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4159CDBD1B89AC34000215AB /* base32Tests */ = {
+		4159CDBD1B89AC34000215AB /* AFBase32Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4159CDCB1B89AC34000215AB /* Build configuration list for PBXNativeTarget "base32Tests" */;
+			buildConfigurationList = 4159CDCB1B89AC34000215AB /* Build configuration list for PBXNativeTarget "AFBase32Tests" */;
 			buildPhases = (
 				4159CDBA1B89AC34000215AB /* Sources */,
 				4159CDBB1B89AC34000215AB /* Frameworks */,
@@ -157,9 +159,9 @@
 			dependencies = (
 				4159CDC01B89AC34000215AB /* PBXTargetDependency */,
 			);
-			name = base32Tests;
+			name = AFBase32Tests;
 			productName = base32Tests;
-			productReference = 4159CDBE1B89AC34000215AB /* base32Tests.xctest */;
+			productReference = 4159CDBE1B89AC34000215AB /* AFBase32Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +181,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4159CDA01B89AC33000215AB /* Build configuration list for PBXProject "base32" */;
+			buildConfigurationList = 4159CDA01B89AC33000215AB /* Build configuration list for PBXProject "AFBase32" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -192,8 +194,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4159CDA41B89AC33000215AB /* base32 */,
-				4159CDBD1B89AC34000215AB /* base32Tests */,
+				4159CDA41B89AC33000215AB /* AFBase32 */,
+				4159CDBD1B89AC34000215AB /* AFBase32Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -203,9 +205,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4159CDB41B89AC33000215AB /* Main.storyboard in Resources */,
-				4159CDB91B89AC33000215AB /* LaunchScreen.xib in Resources */,
-				4159CDB61B89AC33000215AB /* Images.xcassets in Resources */,
+				41E768081DE5238000135381 /* LaunchScreen.xib in Resources */,
+				41E768091DE5238000135381 /* Main.storyboard in Resources */,
+				41E768011DE5229E00135381 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,10 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				416DD6C91B89CE16003358AE /* AFBase32.m in Sources */,
-				4159CDB11B89AC33000215AB /* ViewController.m in Sources */,
-				4159CDAE1B89AC33000215AB /* AppDelegate.m in Sources */,
-				4159CDAB1B89AC33000215AB /* main.m in Sources */,
+				41E768031DE5229E00135381 /* main.m in Sources */,
+				41E767F41DE5227F00135381 /* AFBase32.m in Sources */,
+				41E767F61DE5227F00135381 /* ViewController.m in Sources */,
+				41E767F51DE5227F00135381 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4159CDC51B89AC34000215AB /* base32Tests.m in Sources */,
+				41E7680A1DE5254F00135381 /* AFBase32Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,26 +245,28 @@
 /* Begin PBXTargetDependency section */
 		4159CDC01B89AC34000215AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4159CDA41B89AC33000215AB /* base32 */;
+			target = 4159CDA41B89AC33000215AB /* AFBase32 */;
 			targetProxy = 4159CDBF1B89AC34000215AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4159CDB21B89AC33000215AB /* Main.storyboard */ = {
+		41E767F81DE5229E00135381 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4159CDB31B89AC33000215AB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4159CDB71B89AC33000215AB /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4159CDB81B89AC33000215AB /* Base */,
+				41E767F91DE5229E00135381 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = ../AFBase32/Base.lproj;
+			sourceTree = "<group>";
+		};
+		41E767FA1DE5229E00135381 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41E767FB1DE5229E00135381 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ../AFBase32/Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -285,7 +289,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -302,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -327,7 +330,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -338,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,10 +353,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = base32/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				INFOPLIST_FILE = AFBase32/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AFBase32;
 			};
 			name = Debug;
 		};
@@ -363,10 +364,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = base32/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				INFOPLIST_FILE = AFBase32/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AFBase32;
 			};
 			name = Release;
 		};
@@ -382,10 +382,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = base32Tests/Info.plist;
+				INFOPLIST_FILE = AFBase32Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/base32.app/base32";
+				PRODUCT_NAME = AFBase32Tests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFBase32.app/AFBase32";
 			};
 			name = Debug;
 		};
@@ -397,17 +397,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = base32Tests/Info.plist;
+				INFOPLIST_FILE = AFBase32Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/base32.app/base32";
+				PRODUCT_NAME = AFBase32Tests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFBase32.app/AFBase32";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4159CDA01B89AC33000215AB /* Build configuration list for PBXProject "base32" */ = {
+		4159CDA01B89AC33000215AB /* Build configuration list for PBXProject "AFBase32" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4159CDC61B89AC34000215AB /* Debug */,
@@ -416,7 +416,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4159CDC81B89AC34000215AB /* Build configuration list for PBXNativeTarget "base32" */ = {
+		4159CDC81B89AC34000215AB /* Build configuration list for PBXNativeTarget "AFBase32" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4159CDC91B89AC34000215AB /* Debug */,
@@ -425,7 +425,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4159CDCB1B89AC34000215AB /* Build configuration list for PBXNativeTarget "base32Tests" */ = {
+		4159CDCB1B89AC34000215AB /* Build configuration list for PBXNativeTarget "AFBase32Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4159CDCC1B89AC34000215AB /* Debug */,

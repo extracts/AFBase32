@@ -11,3 +11,8 @@ Version 1.1 (08/23/2015)
 - Convert the inline testes to proper XCTesting test cases.
 - Fixed a new inconsistent method return types.
 - Update the rest of the code to the latest coding/configuration practices.
+
+Version 1.2 (11/22/2016)
+------------------------
+- Fully rename all references to include the "AF" prefix.
+- Fix a few small issues in the main storyboard related to the display of the encrypted and decrypted text.

@@ -3,7 +3,7 @@
  *
  * MIT License (MIT)
  *
- * Copyright (c) 2015 Ashkan Farhadtouski
+ * Copyright (c) 2012-2016 Ashkan Farhadtouski
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,21 +25,9 @@
  */
 
 /*
- * Release History
+ * Version 1.1
  *
- * Version 1.0 (12/29/2012)
- * ------------------------
- * - Initial release.
- *
- * Version 1.1 (08/23/2015)
- * ------------------------
- * - Fix a bug in decimal to binary conversion.
- * - Fix a bug in character lookup where an invalid index would return a garbage value.
- * - Renamed the Base32 class to AFBase32 to avoid potential naming conflicts.
- * - Increased the maximum limit to 19.
- * - Convert the inline testes to proper XCTesting test cases.
- * - Fixed a new inconsistent method return types.
- * - Update the rest of the code to the latest coding/configuration practices.
+ * Please refer to the "RELEASE NOTES.md" file for detailed change history.
  */
 
 #import <Foundation/Foundation.h>
